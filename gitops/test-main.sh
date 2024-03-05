@@ -35,3 +35,14 @@ if [[ $STATE_EXPECTED == $STATE_EXPECTED ]]; then
 else
   echo "State test failed. Expected: $STATE_EXPECTED Actual: $STATE_ACTUAL"; exit 1;
 fi
+
+# Check result
+# [START workflows_build_main_test]
+RESULT_EXPECTED="result: '\"Hello World\"'"
+RESULT_ACTUAL=$(grep "result: " $FILE)
+if [[ $RESULT_EXPECTED == $RESULT_ACTUAL ]]; then
+  echo "Result test passed"
+else
+  echo "Result test failed. Expected: $RESULT_EXPECTED Actual: $RESULT_ACTUAL"; exit 1;
+fi
+# [END workflows_build_main_test]
